@@ -1,0 +1,112 @@
+body{
+    width: 100%;
+    height: 100%;
+}
+
+#loading-overlay {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    color: white;
+    font-size: 2rem;
+    background-color: black;
+}
+
+#loading-overlay.hidden {
+    display: none;
+}
+
+
+#scanning-overlay {
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: transparent;
+    z-index: 2;
+}
+
+@media (min-aspect-ratio: 1/1) {
+    #scanning-overlay .inner {
+      width: 50vh;
+      height: 50vh;
+    }
+}
+
+@media (max-aspect-ratio: 1/1) {
+    #scanning-overlay .inner {
+      width: 80vw;
+      height: 80vw;
+    }
+}
+
+#scanning-overlay .inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    background:
+      linear-gradient(to right, white 10px, transparent 10px) 0 0,
+      linear-gradient(to right, white 10px, transparent 10px) 0 100%,
+      linear-gradient(to left, white 10px, transparent 10px) 100% 0,
+      linear-gradient(to left, white 10px, transparent 10px) 100% 100%,
+      linear-gradient(to bottom, white 10px, transparent 10px) 0 0,
+      linear-gradient(to bottom, white 10px, transparent 10px) 100% 0,
+      linear-gradient(to top, white 10px, transparent 10px) 0 100%,
+      linear-gradient(to top, white 10px, transparent 10px) 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+}
+
+#scanning-overlay svg {
+    opacity: 0.6;
+    color: white;
+    width: 60%;
+    align-self: center;
+}
+
+#scanning-overlay .inner .scanline {
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    background: white;
+    animation: move 2s linear infinite;
+}
+
+@keyframes move {
+    0%, 100% { top: 0% }
+    50% { top: calc(100% - 10px) }
+}
+
+
+#scanning-overlay.hidden {
+    display: none;
+}
+
+#Aframe-Container{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+#UI-Container{
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+#modal-video-player{
+    max-height: 75vh;
+    height: 70vh;
+    max-width: 100%;
+    margin-bottom: .5rem;
+}
